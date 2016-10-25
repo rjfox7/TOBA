@@ -24,31 +24,43 @@ public class LoginServlet extends HttpServlet {
                           throws ServletException, IOException {
         
 String url = "/index.html";
-
-        // get current action
-        String action = request.getParameter("action");
-        if (action == null) {
-            action = "enroll";  // default action
-        }
-
-        // perform action and set URL to appropriate page
-        if (action.equals("enroll")) {
-            url = "/new_customer.html";    // the "join" page
-        }
-        else if (action.equals("add")) {                
-            // get parameters from the request
-            String userName = request.getParameter("userName");
-            String password = request.getParameter("password");
-            
-            // set User object in request object and set URL
-            request.setAttribute("user", User);
-            url = "/success.jsp";   // the "success" page
-        }
+        String userName = request.getParameter("username");
+        String password = request.getParameter("password");
         
-        // forward request and response objects to specified URL
-        getServletContext()
-            .getRequestDispatcher(url)
-            .forward(request, response);
+        if(userName!=null && userName.equalsIgnoreCase("jsmith@toba.com") && password != null && password.equals("letmein"))
+        {
+            //Redirect to successful login
+            response.sendRedirect("/TOBA/account_activity.html");
+        }
+        else
+        {
+            //Redirect to login failure
+            response.sendRedirect("/TOBA/login_failure.html");
+        }
+        // get current action
+//        String action = request.getParameter("action");
+//        if (action == null) {
+//            action = "enroll";  // default action
+//        }
+//
+//        // perform action and set URL to appropriate page
+//        if (action.equals("enroll")) {
+//            url = "/new_customer.html";    // the "join" page
+//        }
+//        else if (action.equals("add")) {                
+//            // get parameters from the request
+//            String userName = request.getParameter("userName");
+//            String password = request.getParameter("password");
+//            
+//            // set User object in request object and set URL
+//            request.setAttribute("user", User);
+//            url = "/success.jsp";   // the "success" page
+//        }
+//        
+//        // forward request and response objects to specified URL
+//        getServletContext()
+//            .getRequestDispatcher(url)
+//            .forward(request, response);
     }    
     
     @Override
