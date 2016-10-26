@@ -50,6 +50,10 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    public User(String firstName, String lastName, String phone, String address, String city, String state, String zip) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getFirstName() {
         return firstName;
     }

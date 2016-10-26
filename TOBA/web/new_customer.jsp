@@ -1,5 +1,11 @@
-<!DOCTYPE html>
+<%-- 
+    Document   : new_customer
+    Created on : Oct 25, 2016, 9:44:34 PM
+    Author     : Rachel
+--%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -7,7 +13,7 @@
         <link rel="stylesheet" href="styles/main.css" type="text/css"/>
     </head>
     <body>
-    <h2>Please complete the following to enroll in online banking</h2>
+    <h2>All fields must be completed to enroll, please try again</h2>
       <form action="/TOBA/New_Customer" method="post">
         <input type="hidden" name="action" value="add">        
         <label class="pad_top">First Name:</label>

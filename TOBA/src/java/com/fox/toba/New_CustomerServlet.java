@@ -58,22 +58,25 @@ String url = "/index.html";
             String state = request.getParameter("state");
             String zip = request.getParameter("zip");
             String email = request.getParameter("email");
-
-            // set User object in request object and set URL
-            request.setAttribute("user", user);
-            url = "/success.jsp";   // the "success" page
-        }
+            
+        User user = new User(firstName, lastName, phone, address, city, state, zip, email);
         
-        // forward request and response objects to specified URL
-        getServletContext()
+        String message;
+        if (firstName == null || lastName == null || phone == null || address == null || city == null || state == null || zip == null || email == null || firstName.isEmpty() || lastName.isEmpty() || phone.isEmpty() || address.isEmpty() || city.isEmpty() || state.isEmpty() || zip.isEmpty() || email.isEmpty()) {
+            message = 
+            url = "/new_customer.jsp";           
+        }
+        else {
+            message = 
+            url = "/success.html";  
+            Userdatabase.insert((User) user);
+        }
+        request.setAttribute("user", user);
+        
+    }
+        // the "success" pagegetServletContext()
+    getServletContext()
             .getRequestDispatcher(url)
             .forward(request, response);
-    }    
-    @Override
-    protected void doGet(HttpServletRequest request, 
-                          HttpServletResponse response) 
-                          throws ServletException, IOException {
-        doPost(request, response);
-    }    
-}
-    
+                    }
+       }

@@ -15,7 +15,7 @@ import toba.user.User;
  */
 public class LoginServlet extends HttpServlet {
 
-    private Object User;
+    private User user;
 
    
     @Override
