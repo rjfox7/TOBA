@@ -41,12 +41,11 @@ String url = "/index.html";
         // get current action
         String action = request.getParameter("action");
         if (action == null) {
-            action = "enroll";  // default action
+            action = "Enroll";  // default action
         }
-
         // perform action and set URL to appropriate page
-        if (action.equals("enroll")) {
-            url = "/new_customer.html";    // the "join" page
+        if (action.equals("Enroll")) {
+            url = "/TOBA/new_customer.jsp";    // the "join" page
         }
         else if (action.equals("add")) {                
             // get parameters from the request
@@ -63,16 +62,16 @@ String url = "/index.html";
         
         String message;
         if (firstName == null || lastName == null || phone == null || address == null || city == null || state == null || zip == null || email == null || firstName.isEmpty() || lastName.isEmpty() || phone.isEmpty() || address.isEmpty() || city.isEmpty() || state.isEmpty() || zip.isEmpty() || email.isEmpty()) {
-            message = 
-            url = "/new_customer.jsp";           
+            message = "Please complete all fields to enroll.";
+            url = "/new_customer.jsp";          
         }
         else {
-            message = 
-            url = "/success.html";  
-            Userdatabase.insert((User) user);
+            message = "";
+            url = "/success.html";
+            Userdatabase.insert(user);
         }
         request.setAttribute("user", user);
-        
+        request.setAttribute("message", message);
     }
         // the "success" pagegetServletContext()
     getServletContext()

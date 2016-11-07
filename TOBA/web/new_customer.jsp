@@ -7,14 +7,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
+    
         <meta charset="UTF-8">
         <title>New_Customer</title>
-        <link rel="stylesheet" href="styles/main.css" type="text/css"/>
-    </head>
+    
     <body>
-    <h2>All fields must be completed to enroll, please try again</h2>
-      <form action="/TOBA/New_Customer" method="post">
+    <h2>All fields must be completed to enroll</h2>
+    <p><i>${message}<i><p>
+        <form action="New_Customer" method="post">
         <input type="hidden" name="action" value="add">        
         <label class="pad_top">First Name:</label>
         <br>
@@ -42,7 +42,7 @@
         <input type="email" name="email" ><br>
         <label>&nbsp;</label>
         <br>
-        <input type="submit" value="Submit" class="margin_left">
+        <input type="submit" value="Enroll" class="margin_left">
     </form>
 </body>
 </html>
