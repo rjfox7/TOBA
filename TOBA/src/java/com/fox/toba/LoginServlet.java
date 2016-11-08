@@ -36,9 +36,10 @@ String url = "/index.html";
         {
             //Redirect to login failure
             response.sendRedirect("/TOBA/login_failure.html");
-        }
-        // get current action
-//        String action = request.getParameter("action");
+            
+       } 
+        
+    //        String action = request.getParameter("action");
 //        if (action == null) {
 //            action = "enroll";  // default action
 //        }

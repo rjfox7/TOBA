@@ -10,13 +10,10 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
-        <div>TOBA Titan Online Banking</div>
-    </body>
-    <div id="wrapper">
+        <div id="wrapper">
 <h2>Welcome!</h2>
-<div id="menu">
-    <br>
+    <%@ taglib prefix="mma" uri="/WEB-INF/tlds/murach.tld" %>
+
     <form action="/TOBA/login.html" method="get">
         <input type="submit" name="login" value="Log In">
         </form>
@@ -28,10 +25,6 @@ and open the template in the editor.
 <main>
 <h3>Banking for people on the go...</h3>
 </main>
-</div>
-	    <div class="footer">
-</div>        
-<footer>Copyright &copy; 2016 TOBA Titan<br>
-</footer>
-</body>
+ </body>
+ Copyright <mma:currentDate />
 </html>
