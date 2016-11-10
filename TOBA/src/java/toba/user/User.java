@@ -17,6 +17,8 @@ public class User implements Serializable {
     private String state;
     private String zip;
     private String email;
+    private String userName;
+    private String passWord;
 
     public User() {
         firstName = "";
@@ -27,6 +29,8 @@ public class User implements Serializable {
         state = "";
         zip = "";
         email = "";
+        userName = "";
+        passWord = "";
     }
 
     /**
@@ -48,12 +52,13 @@ public class User implements Serializable {
         this.state = state;
         this.zip = zip;
         this.email = email;
+        this.userName = userName;
+        this.passWord = passWord;
     }
 
-    public User(String firstName, String lastName, String phone, String address, String city, String state, String zip) {
+    public User(String firstName, String lastName, String phone, String address, String city, String state, String zip, String email, String userName, String passWord) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
     public String getFirstName() {
         return firstName;
     }
@@ -114,5 +119,21 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+       public String getuserName() {
+        return userName;
+    }
+
+    public void setuserName(String userName) {
+        this.email = userName;
+    }
+
+    public String getpassWord() {
+        return passWord;
+    }
+
+    public void setpassWord(String passWord) {
+        this.email = passWord;
     }
 }

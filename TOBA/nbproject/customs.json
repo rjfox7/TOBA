@@ -1,6 +1,7 @@
 {
     "elements": {
         "mma:currentDate": {},
+        "c:import": {},
         "jsp:include": {}
     },
     "attributes": {}

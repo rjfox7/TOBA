@@ -4,9 +4,12 @@
     Author     : Rachel
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<!DOCTYPE html>
-<%@ taglib prefix="mma" uri="/WEB-INF/tlds/murach.tld" %>
-
-<p>Copyright <mma:currentDate /> TOBA Titan</p>
+<%@ page import="java.util.Calendar.YEAR"%>
+<%@ page import="java.util.GregorianCalendar, java.util.Calendar" %>
+<%
+    GregorianCalendar currentDate = new GregorianCalendar();
+    int currentYear = currentDate.get(Calendar,YEAR);
+    %>
+  <p>&copy; Copyright <%= currentYear %> TOBA Titan</p>
+</body>
+</html>

@@ -57,25 +57,41 @@ String url = "/index.html";
             String state = request.getParameter("state");
             String zip = request.getParameter("zip");
             String email = request.getParameter("email");
+            String userName = request.getParameter("userName");
+            String passWord = request.getParameter("passWord");
             
-        User user = new User(firstName, lastName, phone, address, city, state, zip, email);
-        
         String message;
-        if (firstName == null || lastName == null || phone == null || address == null || city == null || state == null || zip == null || email == null || firstName.isEmpty() || lastName.isEmpty() || phone.isEmpty() || address.isEmpty() || city.isEmpty() || state.isEmpty() || zip.isEmpty() || email.isEmpty()) {
+        if (firstName == null || lastName == null || phone == null || address == null || city == null || state == null || zip == null || email == null || firstName.isEmpty() || lastName.isEmpty() || phone.isEmpty() || address.isEmpty() || city.isEmpty() || state.isEmpty() || zip.isEmpty() || email.isEmpty() || userName.isEmpty() || passWord.isEmpty()) {
             message = "Please complete all fields to enroll.";
             url = "/new_customer.jsp";          
         }
         else {
             message = "";
             url = "/success.html";
-            Userdatabase.insert(user);
+            
+            User user = new User(firstName, lastName, phone, address, city, state, zip, email, userName, passWord);
+            session.setAttribute("user", user);
         }
-        request.setAttribute("user", user);
-        request.setAttribute("message", message);
+        session.setAttribute("userName", userName);
+        session.setAttribute("passWord", passWord);
     }
         // the "success" pagegetServletContext()
     getServletContext()
             .getRequestDispatcher(url)
             .forward(request, response);
                     }
+
+    private static class session {
+
+        private static void setAttribute(String userName, String userName0) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        private static void setAttribute(String user, User user0) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        public session() {
+        }
+    }
        }

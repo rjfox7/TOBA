@@ -16,6 +16,7 @@ import toba.user.User;
 public class LoginServlet extends HttpServlet {
 
     private User user;
+    private boolean Reset_Password;
 
    
     @Override
@@ -31,12 +32,16 @@ String url = "/index.html";
         {
             //Redirect to successful login
             response.sendRedirect("/TOBA/account_activity.html");
-        }
-        else
+        } 
+        if(userName!=null && userName.equalsIgnoreCase("") && password != null && password.equals(""))
         {
             //Redirect to login failure
             response.sendRedirect("/TOBA/login_failure.html");
-            
+        }   
+        else if(Reset_Password);
+        {
+            //Redirect to login failure
+            response.sendRedirect("/TOBA/password_reset.jsp");
        } 
         
     //        String action = request.getParameter("action");
