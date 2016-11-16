@@ -52,12 +52,19 @@ public class User implements Serializable {
         this.state = state;
         this.zip = zip;
         this.email = email;
-        this.userName = userName;
-        this.passWord = passWord;
-    }
+            }
 
     public User(String firstName, String lastName, String phone, String address, String city, String state, String zip, String email, String userName, String passWord) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.email = email;
+        this.userName = userName;
+        this.passWord = passWord;
     }
     public String getFirstName() {
         return firstName;

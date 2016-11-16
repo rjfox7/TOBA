@@ -13,13 +13,13 @@
     <body>
         <div></div>
     
-        <h2>Please select a new password for your account</h2>
+        <h1>Please select a new password for your account</h1>
 
-        <label class="pad_top">New Password:</label>
-        <input type="text" name="password"><br>
-        <label class="pad_top">Confirm Password:</label>
-        <input type="text" name="password"><br>
-        <br><br>
+        <label>=userName:</label>
+        <span>${user.userName}</span><br>
+        <label>=passWord:</label>
+        <span>${user.passWord}</span><br>
+         <br><br>
         <input type="submit" value="Submit">
         <br>
     </body>

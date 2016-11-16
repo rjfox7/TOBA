@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import toba.data.Userdatabase;
 import toba.user.User;
 
@@ -20,7 +21,7 @@ import toba.user.User;
  */
 public class New_CustomerServlet extends HttpServlet {
 
-    private Object user;
+    private HttpSession session;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,8 +36,8 @@ public class New_CustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, 
                           HttpServletResponse response) 
                           throws ServletException, IOException {
-        
-String url = "/index.html";
+        session=request.getSession(true);       
+        String url = "/index.jsp";
 
         // get current action
         String action = request.getParameter("action");
@@ -61,37 +62,32 @@ String url = "/index.html";
             String passWord = request.getParameter("passWord");
             
         String message;
-        if (firstName == null || lastName == null || phone == null || address == null || city == null || state == null || zip == null || email == null || firstName.isEmpty() || lastName.isEmpty() || phone.isEmpty() || address.isEmpty() || city.isEmpty() || state.isEmpty() || zip.isEmpty() || email.isEmpty() || userName.isEmpty() || passWord.isEmpty()) {
-            message = "Please complete all fields to enroll.";
-            url = "/new_customer.jsp";          
+        if (userName == null || "".equals(userName)){
+            userName = String.format("%1$s%2$s", lastName,zip);
         }
-        else {
+        if (passWord == null || "".equals(passWord)){
+            passWord = "welcome1";
+        }
+        if (firstName != null && lastName != null && phone != null && address != null && city != null && state != null && zip != null && email != null && !firstName.isEmpty() && !lastName.isEmpty() && !phone.isEmpty() && !address.isEmpty() && !city.isEmpty() && !state.isEmpty() && !zip.isEmpty() && !email.isEmpty() && !userName.isEmpty() && !passWord.isEmpty()) {
             message = "";
-            url = "/success.html";
+            url = "/success.jsp";
+            
             
             User user = new User(firstName, lastName, phone, address, city, state, zip, email, userName, passWord);
-            session.setAttribute("user", user);
+            session.setAttribute("user", user); 
+        }
+        else {
+            message = "Please complete all fields to enroll.";
+            url = "/new_customer.jsp";
+            
         }
         session.setAttribute("userName", userName);
         session.setAttribute("passWord", passWord);
+        session.setAttribute("message", message);
     }
         // the "success" pagegetServletContext()
     getServletContext()
             .getRequestDispatcher(url)
             .forward(request, response);
                     }
-
-    private static class session {
-
-        private static void setAttribute(String userName, String userName0) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        private static void setAttribute(String user, User user0) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        public session() {
-        }
-    }
        }

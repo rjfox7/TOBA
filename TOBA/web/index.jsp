@@ -13,11 +13,11 @@ and open the template in the editor.
         <div id="wrapper">
             
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <c:import url="/includes/header.html" />
+    <c:import url="/includes/header.jsp" />
     
 <h2>Welcome!</h2>
     
-    <form action="/TOBA/login.html" method="get">
+    <form action="/TOBA/login.jsp" method="get">
         <input type="submit" name="login" value="Log In">
         </form>
     <br>

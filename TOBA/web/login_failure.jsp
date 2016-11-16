@@ -12,7 +12,7 @@ and open the template in the editor.
     </head>
     <body>
         <h3>Your username or password was incorrect, please try again</h3>
-        <FORM METHOD="LINK" ACTION="login.html">
+        <FORM METHOD="LINK" ACTION="login.jsp">
     <INPUT TYPE="submit" VALUE="Return to Log In">
     </FORM>
     </body>
