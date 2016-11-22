@@ -8,5 +8,6 @@
     </head>
     <body>
     <h3>Thank you for enrolling. Your account is now ready to sign in for use!</h3>
+    <p>FirstName: ${user.firstName}</>
     </body>
 </html>

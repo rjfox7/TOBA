@@ -66,6 +66,10 @@ public class User implements Serializable {
         this.userName = userName;
         this.passWord = passWord;
     }
+
+    public User(String firstName, String lastName, String email) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     public String getFirstName() {
         return firstName;
     }
@@ -142,5 +146,13 @@ public class User implements Serializable {
 
     public void setpassWord(String passWord) {
         this.email = passWord;
+    }
+
+    public String getfirstName() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getlastName() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

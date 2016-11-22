@@ -46,7 +46,8 @@ public class New_CustomerServlet extends HttpServlet {
         }
         // perform action and set URL to appropriate page
         if (action.equals("Enroll")) {
-            url = "/TOBA/new_customer.jsp";    // the "join" page
+            url = "/TOBA/new_customer.jsp"; 
+            // the "join" page
         }
         else if (action.equals("add")) {                
             // get parameters from the request
@@ -61,6 +62,7 @@ public class New_CustomerServlet extends HttpServlet {
             String userName = request.getParameter("userName");
             String passWord = request.getParameter("passWord");
             
+                   
         String message;
         if (userName == null || "".equals(userName)){
             userName = String.format("%1$s%2$s", lastName,zip);
@@ -71,15 +73,15 @@ public class New_CustomerServlet extends HttpServlet {
         if (firstName != null && lastName != null && phone != null && address != null && city != null && state != null && zip != null && email != null && !firstName.isEmpty() && !lastName.isEmpty() && !phone.isEmpty() && !address.isEmpty() && !city.isEmpty() && !state.isEmpty() && !zip.isEmpty() && !email.isEmpty() && !userName.isEmpty() && !passWord.isEmpty()) {
             message = "";
             url = "/success.jsp";
-            
-            
+            UserDB.insert(user);     
+                                   
             User user = new User(firstName, lastName, phone, address, city, state, zip, email, userName, passWord);
             session.setAttribute("user", user); 
         }
         else {
             message = "Please complete all fields to enroll.";
             url = "/new_customer.jsp";
-            
+                        
         }
         session.setAttribute("userName", userName);
         session.setAttribute("passWord", passWord);
@@ -90,4 +92,16 @@ public class New_CustomerServlet extends HttpServlet {
             .getRequestDispatcher(url)
             .forward(request, response);
                     }
+
+    private static class UserDB {
+
+        public UserDB() {
+        }
+    }
+
+    private static class user {
+
+        public user() {
+        }
+    }
        }

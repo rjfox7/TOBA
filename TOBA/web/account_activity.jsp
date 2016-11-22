@@ -13,8 +13,8 @@ and open the template in the editor.
     </head>
     <body>
         <c:choose>
-            <c:when test="${sessionScope.user != null}">
-        <h2>Current account activity</h2>
+            <c:when test="${user != null}">
+        <h2>Hello: ${user.firstName}</h2>
         </c:when>
         <c:otherwise>
          <h2>Not logged in</h2>   

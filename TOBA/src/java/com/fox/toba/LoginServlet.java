@@ -6,7 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import toba.data.Userdatabase;
+import toba.data.UserDB;
 import toba.user.User;
 
 /**
@@ -24,15 +24,17 @@ public class LoginServlet extends HttpServlet {
                           HttpServletResponse response) 
                           throws ServletException, IOException {
         
-String url = "/index.html";
+String url = "/index.jsp";
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
         
-        if(userName!=null && userName.equalsIgnoreCase("jsmith@toba.com") && password != null && password.equals("letmein"))
+        User user = (User)request.getSession().getAttribute("user");
+        if (user == null)
+               url = "new_customer.jsp";
+        else if(user.getuserName() == userName && user.getpassWord() == password)
         {
-            //Redirect to successful login
-            response.sendRedirect("/TOBA/account_activity.html");
-        } 
+            url = "/account_activity.jsp";
+        }
         if(userName!=null && userName.equalsIgnoreCase("") && password != null && password.equals(""))
         {
             //Redirect to login failure
@@ -44,29 +46,12 @@ String url = "/index.html";
             response.sendRedirect("/TOBA/password_reset.jsp");
        } 
         
-    //        String action = request.getParameter("action");
-//        if (action == null) {
-//            action = "enroll";  // default action
-//        }
-//
-//        // perform action and set URL to appropriate page
-//        if (action.equals("enroll")) {
-//            url = "/new_customer.html";    // the "join" page
-//        }
-//        else if (action.equals("add")) {                
-//            // get parameters from the request
-//            String userName = request.getParameter("userName");
-//            String password = request.getParameter("password");
-//            
-//            // set User object in request object and set URL
-//            request.setAttribute("user", User);
-//            url = "/success.jsp";   // the "success" page
-//        }
+ 
 //        
 //        // forward request and response objects to specified URL
-//        getServletContext()
-//            .getRequestDispatcher(url)
-//            .forward(request, response);
+    getServletContext()
+        .getRequestDispatcher(url)
+        .forward(request, response);
     }    
     
     @Override

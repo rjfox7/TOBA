@@ -14,13 +14,13 @@
         <div></div>
     
         <h1>Please select a new password for your account</h1>
-
-        <label>=userName:</label>
-        <span>${user.userName}</span><br>
-        <label>=passWord:</label>
+        <form action="/Password_Reset">
+        <label>=Enter New Password:</label>
+        <input name="password" id="password" type="text" value="${user.password}">
         <span>${user.passWord}</span><br>
-         <br><br>
+        <br><br>
         <input type="submit" value="Submit">
+        </form>
         <br>
     </body>
 </html>
