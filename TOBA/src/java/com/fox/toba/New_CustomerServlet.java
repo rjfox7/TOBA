@@ -73,10 +73,16 @@ public class New_CustomerServlet extends HttpServlet {
         if (firstName != null && lastName != null && phone != null && address != null && city != null && state != null && zip != null && email != null && !firstName.isEmpty() && !lastName.isEmpty() && !phone.isEmpty() && !address.isEmpty() && !city.isEmpty() && !state.isEmpty() && !zip.isEmpty() && !email.isEmpty() && !userName.isEmpty() && !passWord.isEmpty()) {
             message = "";
             url = "/success.jsp";
-            UserDB.insert(user);     
-                                   
-            User user = new User(firstName, lastName, phone, address, city, state, zip, email, userName, passWord);
+            
+             User user = new User(firstName, lastName, phone, address, city, state, zip, email, userName, passWord);
             session.setAttribute("user", user); 
+            
+            UserDB.insert(//<editor-fold defaultstate="collapsed" desc="comment">
+                    /*User*/
+//</editor-fold>
+);     
+                                   
+           
         }
         else {
             message = "Please complete all fields to enroll.";
@@ -94,6 +100,10 @@ public class New_CustomerServlet extends HttpServlet {
                     }
 
     private static class UserDB {
+
+        private static void insert() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
 
         public UserDB() {
         }

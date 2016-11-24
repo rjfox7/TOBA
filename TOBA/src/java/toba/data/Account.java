@@ -9,10 +9,6 @@ package toba.data;
  *
  * @author Rachel
  */
-class DBUtil {
-
-    static Object getEmFactory() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+public class Account {
     
 }

@@ -19,6 +19,9 @@ public class User implements Serializable {
     private String email;
     private String userName;
     private String passWord;
+    private String user;
+    private String startingBalance;
+    private String accountType;
 
     public User() {
         firstName = "";
@@ -31,6 +34,9 @@ public class User implements Serializable {
         email = "";
         userName = "";
         passWord = "";
+        user = "";
+        startingBalance="";
+        accountType="";
     }
 
     /**
@@ -42,8 +48,11 @@ public class User implements Serializable {
      * @param city
      * @param state
      * @param email
+     * @param user
+     * @param startingBalance
+     * @param accountType
      */
-    public User(String firstName, String lastName, String phone, String address, String city, String state, String zip, String email) {
+    public User(String firstName, String lastName, String phone, String address, String city, String state, String zip, String email, String user, String startingBalance, String accountType) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
@@ -52,6 +61,9 @@ public class User implements Serializable {
         this.state = state;
         this.zip = zip;
         this.email = email;
+        this.user = user;
+        this.startingBalance = startingBalance;
+        this.accountType = accountType;
             }
 
     public User(String firstName, String lastName, String phone, String address, String city, String state, String zip, String email, String userName, String passWord) {
