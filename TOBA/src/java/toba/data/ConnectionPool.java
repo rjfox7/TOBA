@@ -5,20 +5,46 @@
  */
 package toba.data;
 
-import java.sql.Connection;
+import java.sql.*;
+import javax.sql.DataSource;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
-/**
- *
- * @author Rachel
- */
-class ConnectionPool {
+public class ConnectionPool {
 
-    static ConnectionPool getInstance() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private static ConnectionPool pool = null;
+    private static DataSource dataSource = null;
+
+    private ConnectionPool() {
+        try {
+            InitialContext ic = new InitialContext();
+            dataSource = (DataSource) ic.lookup("java:/comp/env/jdbc/murach");
+        } catch (NamingException e) {
+            System.out.println(e);
+        }
     }
 
-    Connection getConnection() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static synchronized ConnectionPool getInstance() {
+        if (pool == null) {
+            pool = new ConnectionPool();
+        }
+        return pool;
     }
-    
+
+    public Connection getConnection() {
+        try {
+            return dataSource.getConnection();
+        } catch (SQLException e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public void freeConnection(Connection c) {
+        try {
+            c.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
 }

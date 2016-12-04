@@ -16,6 +16,10 @@
         <servlet-name>Password_Reset</servlet-name>
         <servlet-class>com.fox.toba.Password_Reset</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Reports</servlet-name>
+        <servlet-class>com.fox.toba.Reports</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -39,6 +43,38 @@
     <servlet-mapping>
         <servlet-name>Password_Reset</servlet-name>
         <url-pattern>/Password_Reset</url-pattern>
+    </servlet-mapping>
+    <security-role>
+        <description>customer service employees</description>
+        <role-name>service</role-name>
+    </security-role>
+    <security-role>
+        <description>system administrators</description>
+        <role-name>programmer</role-name>
+    </security-role>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Protected Area</web-resource-name>
+            <url-pattern>admin/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>programmer</role-name>
+            <role-name>service</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>admin/login.html</form-login-page>
+            <form-error-page>admin/login_error.html</form-error-page>
+        </form-login-config>
+    </login-config>
+    <servlet-mapping>
+        <servlet-name>Reports</servlet-name>
+        <url-pattern>/Reports</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

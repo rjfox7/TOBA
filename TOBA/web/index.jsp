@@ -26,6 +26,9 @@ and open the template in the editor.
     <form action="/TOBA/new_customer.jsp" method="get">
         <input type="submit" name="enroll" value="Enroll">
     </form>
+    
+    <h2>User Table</h2>
+        <p><a href="userTableSpreadsheet">Return as an XLS file</a></p>
 </div>
 <main>
 <h3>Banking for people on the go...</h3>

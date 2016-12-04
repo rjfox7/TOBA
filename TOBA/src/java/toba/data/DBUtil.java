@@ -9,10 +9,14 @@ package toba.data;
  *
  * @author Rachel
  */
-class DBUtil {
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
-    static Object getEmFactory() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+public class DBUtil {
+    private static final EntityManagerFactory emf =
+            Persistence.createEntityManagerFactory("emailListPU");
     
+    public static EntityManagerFactory getEmFactory() {
+        return emf;
+    }
 }
