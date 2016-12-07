@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-!DOCTYPE html>
+<!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -27,9 +27,7 @@ and open the template in the editor.
         <input type="submit" name="enroll" value="Enroll">
     </form>
     
-    <h2>User Table</h2>
-        <p><a href="userTableSpreadsheet">Return as an XLS file</a></p>
-</div>
+  </div>
 <main>
 <h3>Banking for people on the go...</h3>
 </main>
